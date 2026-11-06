@@ -1,0 +1,26 @@
+# 파이썬
+__pycache__/
+*.pyc
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# 학습 산출물 (용량 큼. 따로 관리)
+models/
+checkpoints/
+oof/
+*.pt
+*.safetensors
+*.bin
+
+
+# 로그·스크래치
+logs/
+results/
+*.log
+wandb/
+runs/
+.DS_Store
+
+# 제출물
+*.zip

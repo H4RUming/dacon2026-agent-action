@@ -1,0 +1,12 @@
+# 로컬 학습 환경 (Python 3.12).
+# torch는 따로 설치: 2.7.1+cu128 (index-url 달라 CPU빌드 방지).
+# transformers만 평가서버(T4) 로딩 호환 위해 핀. 나머지는 학습 전용이라 최신 wheel 사용.
+transformers==4.49.0
+accelerate
+scikit-learn
+pandas
+scipy
+numpy
+tqdm
+pyarrow
+sentencepiece

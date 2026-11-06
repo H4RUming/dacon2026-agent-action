@@ -1,0 +1,29 @@
+# 파이썬
+__pycache__/
+*.pyc
+.venv/
+venv/
+.venv-gemma/
+.ipynb_checkpoints/
+
+# 대회 데이터 (재배포 불가, DACON에서 직접 받기)
+data/
+
+# 학습 산출물 (용량 큼)
+models/
+checkpoints/
+oof/
+*.pt
+*.safetensors
+*.bin
+*.npz
+*.npy
+*.jsonl
+submit/model*/
+
+# 로그, 제출 압축본
+*.log
+wandb/
+runs/
+*.zip
+.DS_Store

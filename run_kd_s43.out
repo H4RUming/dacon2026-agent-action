@@ -1,0 +1,55 @@
+=== 1) 5-fold OOF (seed 43) Sat Jul 11 15:18:54 KST 2026 ===
+Some weights of ModernBertForSequenceClassification were not initialized from the model checkpoint at jhu-clsp/mmBERT-base and are newly initialized: ['classifier.bias', 'classifier.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+ARGS: {'model': 'jhu-clsp/mmBERT-base', 'alpha': 0.3, 'kd_T': 2.0, 'epochs': 3, 'batch': 64, 'lr': 4e-05, 'max_len': 640, 'seed': 43, 'tag': 'kd_a03_s43'}
+
+== FOLD 0 ==
+  ep1: val macroF1=0.7224
+  ep2: val macroF1=0.7703
+Some weights of ModernBertForSequenceClassification were not initialized from the model checkpoint at jhu-clsp/mmBERT-base and are newly initialized: ['classifier.bias', 'classifier.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  ep3: val macroF1=0.7755
+  fold 0 done 1713s
+
+== FOLD 1 ==
+  ep1: val macroF1=0.7007
+  ep2: val macroF1=0.7678
+Some weights of ModernBertForSequenceClassification were not initialized from the model checkpoint at jhu-clsp/mmBERT-base and are newly initialized: ['classifier.bias', 'classifier.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  ep3: val macroF1=0.7764
+  fold 1 done 1715s
+
+== FOLD 2 ==
+  ep1: val macroF1=0.7311
+  ep2: val macroF1=0.7694
+Some weights of ModernBertForSequenceClassification were not initialized from the model checkpoint at jhu-clsp/mmBERT-base and are newly initialized: ['classifier.bias', 'classifier.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  ep3: val macroF1=0.7842
+  fold 2 done 1715s
+
+== FOLD 3 ==
+  ep1: val macroF1=0.7083
+  ep2: val macroF1=0.7682
+Some weights of ModernBertForSequenceClassification were not initialized from the model checkpoint at jhu-clsp/mmBERT-base and are newly initialized: ['classifier.bias', 'classifier.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  ep3: val macroF1=0.7815
+  fold 3 done 1715s
+
+== FOLD 4 ==
+  ep1: val macroF1=0.7014
+  ep2: val macroF1=0.7760
+  ep3: val macroF1=0.7837
+  fold 4 done 1715s
+
+>>> KD student OOF macroF1=0.7803  (기준: base 0.7735 / 4-teacher 0.7823)
+=== 2) full-data retrain Sat Jul 11 17:41:53 KST 2026 ===
+Some weights of ModernBertForSequenceClassification were not initialized from the model checkpoint at jhu-clsp/mmBERT-base and are newly initialized: ['classifier.bias', 'classifier.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+ARGS: {'model': 'jhu-clsp/mmBERT-base', 'alpha': 0.3, 'kd_T': 2.0, 'epochs': 3, 'batch': 64, 'lr': 4e-05, 'max_len': 640, 'seed': 43, 'out': 'submit/model_kd03_s43'}
+  epoch 0: loss=0.9683 | 654s
+  epoch 1: loss=0.4374 | 653s
+  epoch 2: loss=0.3811 | 653s
+saved -> submit/model_kd03_s43
+=== 3) int8 quantize Sat Jul 11 18:14:42 KST 2026 ===
+submit/model_kd03_s43 -> submit/model_kd03_s43.npz (308 MB)
+=== DONE Sat Jul 11 18:14:43 KST 2026 ===

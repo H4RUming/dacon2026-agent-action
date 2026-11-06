@@ -1,0 +1,14 @@
+=== lr5 full retrain Sat Jul 11 18:16:31 KST 2026 ===
+Some weights of ModernBertForSequenceClassification were not initialized from the model checkpoint at jhu-clsp/mmBERT-base and are newly initialized: ['classifier.bias', 'classifier.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+ARGS: {'data_dir': 'data/original_data', 'model': 'jhu-clsp/mmBERT-base', 'out': 'submit/model_lr5full', 'epochs': 3, 'batch': 64, 'lr': 5e-05, 'max_len': 640, 'warmup': 0.06, 'seed': 42, 'class_weight': False, 'num_workers': 3}
+loaded 70000 rows | classes=14
+  epoch 0: loss=0.9548 | 653s
+  epoch 1: loss=0.5933 | 653s
+  epoch 2: loss=0.5150 | 653s
+
+saved -> submit/model_lr5full | total 650 MB
+files: ['config.json', 'model.safetensors', 'special_tokens_map.json', 'tokenizer.json', 'tokenizer_config.json']
+=== quantize Sat Jul 11 18:49:18 KST 2026 ===
+submit/model_lr5full -> submit/model_lr5full.npz (308 MB)
+=== DONE Sat Jul 11 18:49:20 KST 2026 ===
